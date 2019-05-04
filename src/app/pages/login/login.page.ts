@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {IonSlides, NavController } from '@ionic/angular';
 import { UiServiceService } from '../../services/ui-service.service';
+import { UsuarioService } from '../../services/usuario.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -61,18 +62,16 @@ avatarSlide = {
   slidesPerView: 3.5
 };
 
-  constructor(private navCtrl: NavController, private uiService: UiServiceService) { }
+  constructor(private navCtrl: NavController, private uiService: UiServiceService, private users: UsuarioService) { }
 
   ngOnInit() {
     this.slides.lockSwipes(true);
   }
 
   login( fLogin: NgForm ) {
-    //if (fLogin.invalid ) {return; }
-    console.log(fLogin.valid);
-    console.log(this.loginUser);
-
-    if ( fLogin.valid ) {
+    if (fLogin.invalid ) {return; }
+    const bLogin = this.users.login( this.loginUser);
+    if ( bLogin ) {
       // navegar al tabs
       this.navCtrl.navigateRoot( '/main/tabs/tab1', { animated: true } );
     } else {

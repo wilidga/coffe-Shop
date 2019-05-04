@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+     Menu
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+  <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"  *ngFor="let menu of productos.productos; let i = index">
+              <ion-card >
+                <ion-card-header>
+                  <ion-card-subtitle>
+                    <span class="text-primary"> {{ i + 1 }}. </span>
+                    <span class="noticia-source-name">Precio {{ menu.Precio_prod }}</span>
+                    <span class="noticia-source-name">   Precio Asoc. {{ menu.precio_asociacion }}</span>
+                   </ion-card-subtitle>
+                  <ion-card-title >{{ menu.Descripcion }} </ion-card-title> 
+                </ion-card-header>               
+                <ion-img src="/assets/ImgMenu/{{menu.Image}}"></ion-img>      
+                
+                
+                <ion-card-content>
+                    <ion-list>
+                        <ion-item>
+                  <ion-button slot="start" shape="round "  size="small " fill="outline " color="success " (click)="Agregar(menu)">  
+                      <ion-icon name="add"></ion-icon>                  
+                </ion-button>
+                <ion-button slot="end" shape="round "  size="small " fill="outline " color="danger " (click)="quitar(menu)">  
+                    <ion-icon name="remove"></ion-icon>
+              </ion-button>
+              </ion-item>
+              </ion-list>
+                </ion-card-content>
+                </ion-card>
+              </ion-col>
+            
+          </ion-row>
+        </ion-grid>
+</ion-content>
