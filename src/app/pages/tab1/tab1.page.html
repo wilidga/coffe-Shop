@@ -1,24 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Scan QR Empleado
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Scan QR Empleado
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content> 
-    
-      <ion-slides [options]="swiperOpts">
-          <ion-slide>
-              
-              <ion-button expand="full"
-                          fill="outline"
-                          size="large"
-                          shape="round"
-                          (click)="scan()">
-                  ScanCode
-              </ion-button>
-          </ion-slide>
-      </ion-slides>
-  
+<ion-content>
+
+    <ion-slides [options]="swiperOpts">
+        <ion-slide>
+
+            <ion-button expand="full" fill="outline" size="large" shape="round" (click)="scan()">
+                ScanCode
+            </ion-button>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>{{dataScan}}</ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>

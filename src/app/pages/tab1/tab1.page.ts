@@ -9,7 +9,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+  dataScan: any = '';
   swiperOpts = {
     allowSlidePrev: false,
     allowSlideNext: false
@@ -28,7 +28,7 @@ export class Tab1Page {
 
   ionViewWillEnter() {
     // console.log('viewWillEnter');
-    this.scan();
+    // this.scan();
   }
 
   ionViewWillLeave() {
@@ -44,6 +44,7 @@ export class Tab1Page {
         // this.dataLocal.guardarRegistro( barcodeData.format, barcodeData.text );
 
         console.log(barcodeData.format, barcodeData.text);
+        this.dataScan = barcodeData.text;
       }
 
      }).catch(err => {
